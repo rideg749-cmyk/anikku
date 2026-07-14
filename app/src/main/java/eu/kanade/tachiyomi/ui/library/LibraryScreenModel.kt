@@ -406,7 +406,7 @@ class LibraryScreenModel(
             libraryPreferences.filterDownloaded().changes(),
             libraryPreferences.filterUnseen().changes(),
             libraryPreferences.filterStarted().changes(),
-            libraryPreferences.filterBookmarked().changes(),
+            libraryPreferences.filterseen().changes(),
             // AM (FILLERMARK) -->
             libraryPreferences.filterFillermarkedAnime().changes(),
             // <-- AM (FILLERMARK)
@@ -440,7 +440,7 @@ class LibraryScreenModel(
         val animelibAnimesFlow = combine(
             getLibraryAnime.subscribe(),
             getAnimelibItemPreferencesFlow(),
-            downloadCache.changes,
+            downloadCache.changes.debounce(500),
         ) { libraryMangaList, prefs, _ ->
             libraryMangaList
                 .map { libraryManga ->
