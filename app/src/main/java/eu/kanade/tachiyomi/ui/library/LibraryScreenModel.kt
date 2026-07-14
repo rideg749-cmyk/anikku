@@ -406,7 +406,7 @@ class LibraryScreenModel(
             libraryPreferences.filterDownloaded().changes(),
             libraryPreferences.filterUnseen().changes(),
             libraryPreferences.filterStarted().changes(),
-            libraryPreferences.filterbookmarked().changes(),
+            libraryPreferences.filterBookmarked().changes(),
             // AM (FILLERMARK) -->
             libraryPreferences.filterFillermarkedAnime().changes(),
             // <-- AM (FILLERMARK)
